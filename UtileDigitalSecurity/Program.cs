@@ -21,5 +21,6 @@ namespace UtileDigitalSecurity
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .Build();
+
     }
 }
