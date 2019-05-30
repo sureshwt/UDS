@@ -1,0 +1,970 @@
+﻿/*Login page styles start*/
+.loginFormBody {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    background-color: #f3f3f3;
+    border-radius: 3px;
+}
+
+.loginTitle {
+    text-align: center;
+    margin: 43px 20px auto;
+}
+
+.fieldAlignment {
+    margin-top: 40px;
+}
+
+.loginErrorMessage {
+    font-size: 12px;
+    color: red;
+    padding-left: 11px;
+}
+
+.labelName {
+    text-align: left !important;
+}
+
+.email-cls {
+    border: none !important;
+    border-bottom: 1px solid #efefef !important;
+    border-radius: inherit !important;
+    box-shadow: none !important;
+    width: 260px !important;
+    font-size: 14px !important;
+}
+
+.passwrd-cls {
+    border: none !important;
+    border-bottom: 1px solid #efefef !important;
+    border-radius: inherit !important;
+    box-shadow: none !important;
+    width: 260px !important;
+    font-size: 14px !important;
+}
+
+.login-cls {
+    width: 100px;
+    background: #047bd5 !important;
+    color: white !important;
+    border-color: white !important;
+    height: 40px;
+    width: 150px;
+}
+
+.height-cls {
+    height: 40px;
+}
+
+.login-div {
+    text-align: center;
+    line-height: 90px;
+}
+
+.remember-cls {
+    font-size: 12px;
+    padding: 12px;
+    display: flex;
+}
+
+.remember-text {
+    padding-left: 12px;
+    margin-top: 2px;
+}
+
+.main-div {
+    padding: 15px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+/*login page styles end*/
+
+/*App view styles start*/
+.paginationDiv {
+    padding-right: 0px;
+}
+
+.input-group-addon {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.bootgrid-table {
+    table-layout: auto !important;
+}
+
+.InfoDetais {
+    text-align: start;
+}
+
+.btn-cls {
+    float: right !important;
+    padding-right: 0;
+}
+
+.input-group {
+    width: 350px !important;
+}
+
+.col-sm-12.actionBar {
+    padding: 0;
+}
+
+.search-field.form-control {
+    border-left: none;
+}
+
+.icon.glyphicon.input-group-addon {
+    background: none;
+}
+
+.app-view {
+    background: #2e3034 !important;
+    border: #2e3034 !important;
+    padding: 7px 18px;
+    margin: 6px 4px;
+    font-size: 15px;
+    border-radius: 2px;
+}
+
+    .app-view:hover {
+        background: #2e3034 !important;
+        border: #2e3034 !important;
+        padding: 7px 18px !important;
+        margin: 6px 4px !important;
+        font-size: 15px;
+        border-radius: 2px;
+    }
+
+.add-new {
+    background-color: #fb641b !important;
+    border-color: #fb641b !important;
+    padding: 6px !important;
+    margin: 6px 0px !important;
+    font-size: 15px;
+    border-radius: 2px;
+}
+
+    .add-new:hover {
+        background-color: #fb641b !important;
+        border-color: #fb641b !important;
+        padding: 6px !important;
+        margin: 6px 0px !important;
+        font-size: 15px;
+        border-radius: 2px;
+    }
+
+#header-cls {
+    background: #2699fb !important;
+    border: #2699fb !important;
+    height: 42px !important;
+}
+
+    #header-cls:hover {
+        background: #2699fb !important;
+        border: #2699fb !important;
+        height: 42px !important;
+    }
+
+
+th.text-left:hover {
+    background: #2699fb !important;
+    border: #2699fb !important;
+    height: 42px !important;
+}
+
+tr#border-cls {
+    height: 42px;
+}
+
+.text-left {
+    border-bottom: 0 !important;
+}
+
+.col-sm-6.infoBar {
+    display: none;
+}
+
+a.button {
+    border-radius: 50px !important;
+    margin-right: 5px;
+    font-size: 13px !important;
+    cursor: pointer;
+}
+
+#showDetails {
+    border: 1px solid lightgray;
+    margin-top: 30px;
+    padding: 6px;
+}
+
+.active a.button {
+    background: #2699fb !important;
+}
+
+.bootgrid-table th > .column-header-anchor {
+    color: white !important;
+    font-size: 13px;
+    font-weight: 100;
+}
+
+.table > thead > tr > th {
+    vertical-align: middle !important;
+}
+
+.tog-cls {
+    font-size: 18px;
+    border-top: none !important;
+}
+
+.app-name-cls {
+    text-decoration: underline !important;
+}
+
+.table > tbody > tr > td {
+    line-height: 2;
+    border-bottom-style: hidden !important;
+}
+
+.table > thead > tr > th {
+    line-height: 2;
+    border-bottom-style: hidden !important;
+}
+
+#align-cls {
+    text-align: center !important;
+}
+
+#AppHistoryDetails {
+    margin-top: 12px;
+}
+
+#toggleId:hover, #toggleId:focus {
+    color: #337ab7 !important;
+    text-decoration: none !important;
+}
+
+.actions btn-group {
+    margin-left: 151px !important;
+}
+
+.bootgrid-header .search {
+    width: -1px !important;
+}
+
+.bootgrid-header .search {
+    width: -1px !important;
+}
+
+.actions btn-group {
+    margin-left: 294px !important;
+}
+
+    .actions btn-group :last-child {
+        display: none !important;
+    }
+
+.bootgrid-header .search {
+    width: 362px !important;
+}
+
+.confirm-model {
+    width: 495px !important;
+    position: absolute !important;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    height: 217px;
+}
+
+.confirm-content {
+    border-radius: 0px !important;
+}
+
+.modal-title-header {
+    color: #2699FB;
+    text-align: center !important;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.model-data {
+    text-align: center;
+    font-size: 16px;
+}
+
+.footer-section {
+    text-align: center !important;
+    margin: 10px;
+}
+
+.footer-button {
+    width: 106px;
+    padding: 8px;
+    height: 40px;
+    border-radius: 0px;
+}
+
+    .footer-button:hover {
+        color: #333 !important;
+        background-color: white !important;
+        border-radius: 0px !important;
+        border-color: #ccc;
+    }
+
+.footer-savebtn {
+    width: 106px;
+    border-radius: 0px !important;
+    background: #047BD5 !important;
+    border: none !important;
+    color: white;
+    padding: 8px;
+    height: 40px;
+}
+
+    .footer-savebtn:hover {
+        color: white;
+    }
+
+.dropdown-toggle {
+    border: none !important;
+    border-bottom: 1px solid lightgray !important;
+    border-radius: 0px !important;
+    width: 57px !important;
+}
+
+.dropdown-menu {
+    min-width: 45px !important;
+}
+
+    .dropdown-menu > .active > a {
+        color: black !important;
+        text-decoration: none;
+        background-color: white !important;
+        outline: 0;
+        padding: 9px 17px !important;
+    }
+/*App view styles end*/
+
+/*App Log histort start*/
+.details-div {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    display: flex;
+}
+
+.appInfo-div {
+    position: relative;
+    padding-bottom: 12px;
+    margin-top: 30px;
+}
+
+.app-cls {
+    width: 258px;
+}
+
+.user-cls {
+    width: 250px;
+}
+
+.token-cls {
+    width: 180px;
+}
+
+.app-log-history {
+    border: 1px solid lightgray;
+    margin-top: 6px;
+    padding: 6px;
+}
+
+.table > thead > tr > th {
+    vertical-align: middle !important;
+    color: white;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.backButton {
+    font-weight: 500;
+    color: black;
+}
+
+.bootgrid-table td.no-results {
+    background: white !important;
+    text-align: center !important;
+}
+/*App log history end*/
+
+/*Generate New token styles start*/
+.title-div {
+    padding: 8px !important;
+}
+
+.cls-btn {
+    padding: 4px !important;
+}
+
+.grp-fields {
+    margin: 0 !important;
+    width: 290px !important;
+}
+
+.display-row {
+    display: flex;
+    justify-content: center;
+}
+
+.input-cls {
+    width: 230px !important;
+    height: 40px !important;
+    border-radius: inherit !important;
+}
+
+.token-field {
+    height: 24px;
+}
+
+.btn-color {
+    background: #8e8e8e;
+    color: white;
+    border: #8e8e8e;
+}
+
+.chk-cls {
+    margin: 6px 0px !important;
+}
+
+.footer-cls {
+    width: 250px;
+    margin: 29px auto;
+}
+
+.hg-cls {
+    height: 360px;
+    background: #f8f8f8;
+    border-radius: inherit;
+    width: 585px;
+    position: absolute;
+    top: 92px;
+}
+
+.btn-wd {
+    width: 100px;
+}
+
+.save-cls {
+    margin-left: 30px;
+    background: #8e8e8e;
+    color: white;
+    border: #8e8e8e;
+    height: 40px;
+    border-radius: inherit;
+}
+
+.reset-cls {
+    background: white !important;
+    height: 40px;
+    border-radius: inherit;
+}
+
+.header-color {
+    color: #2699fb;
+}
+
+.content-cls {
+    padding: 15px 50px !important;
+}
+
+.mg-div {
+    margin-top: 12px;
+}
+
+.pos-cls {
+    position: relative;
+}
+
+.label-cls {
+    text-align: left !important;
+    padding-left: 0 !important;
+    font-weight: 500;
+    padding: 0 !important;
+    height: 30px !important;
+}
+
+
+#tokenId {
+    width: 230px;
+    margin-left: 12px;
+    height: 40px;
+    border-radius: inherit;
+    background: white;
+}
+
+.display-cls {
+    display: flex;
+}
+
+.margin-cls {
+    margin-left: 12px;
+}
+
+.astrick {
+    color: red;
+}
+
+.model_header {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.errorMessage {
+    font-size: 12px;
+    color: red;
+}
+/*Generate New token styles end*/
+
+/*User Add and edit styles start*/
+.title-div {
+    padding: 8px !important;
+}
+
+.cls-btn {
+    padding: 4px !important;
+}
+
+.grp-fields {
+    margin: 0 !important;
+    width: 290px !important;
+}
+
+.display-row {
+    display: flex;
+    justify-content: center;
+}
+
+.input-cls {
+    width: 230px !important;
+    height: 40px !important;
+    border-radius: inherit !important;
+}
+
+.token-field {
+    height: 24px;
+}
+
+.btn-color {
+    background: #8e8e8e;
+    color: white;
+    border: #8e8e8e;
+}
+
+.chk-cls {
+    margin: 6px 0px !important;
+}
+
+.footer-cls {
+    width: 250px;
+    margin: 29px auto;
+}
+
+.hg-cls {
+    height: 360px;
+    background: #f8f8f8;
+    border-radius: inherit;
+    width: 600px;
+    position: absolute;
+    top: 92px;
+}
+
+.btn-wd {
+    width: 100px;
+}
+
+.save-cls {
+    margin-left: 30px;
+    background: #8e8e8e;
+    color: white;
+    border: #8e8e8e;
+    height: 40px;
+    border-radius: inherit;
+}
+
+.reset-cls {
+    background: white !important;
+    height: 40px;
+    border-radius: inherit;
+}
+
+.header-color {
+    color: #2699fb;
+}
+
+#tokenId {
+    background: white;
+}
+
+.content-cls {
+    padding: 15px 50px !important;
+}
+
+.mg-div {
+    margin-top: 12px;
+}
+
+.pos-cls {
+    position: relative;
+}
+
+.label-cls {
+    text-align: left !important;
+    padding-left: 0 !important;
+    font-weight: 500;
+    padding: 0 !important;
+    height: 30px !important;
+}
+
+
+#tokenId {
+    width: 230px;
+    margin-left: 12px;
+    height: 40px;
+    border-radius: inherit;
+}
+
+.display-cls {
+    display: flex;
+}
+
+.margin-cls {
+    margin-left: 12px;
+}
+
+.astrick {
+    color: red;
+}
+
+.model_header {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.selectDropDown {
+    width: 230px;
+    height: 39px;
+    border: 1px solid #ccc;
+}
+
+.errorMessage {
+    font-size: 12px;
+    color: red;
+}
+
+.inner-addon .glyphicon {
+    position: absolute;
+    padding: 10px;
+    right: 16px;
+    cursor: pointer;
+}
+
+.inner-addon {
+    position: relative;
+}
+
+/*User Add and edit styles end*/
+
+/*User Details style start*/
+.paginationDiv {
+    padding-right: 0px;
+}
+
+.input-group-addon {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.narbar-cls {
+    min-height: 50px !important;
+}
+
+.bootgrid-table {
+    table-layout: auto !important;
+}
+
+.InfoDetais {
+    text-align: start;
+}
+
+.btn-cls {
+    float: right !important;
+    padding-right: 0;
+}
+
+.input-group {
+    width: 350px !important;
+}
+
+.col-sm-12.actionBar {
+    padding: 0;
+}
+
+.search-field.form-control {
+    border-left: none;
+}
+
+.icon.glyphicon.input-group-addon {
+    background: none;
+}
+
+.app-view {
+    background: #2e3034 !important;
+    border: #2e3034 !important;
+    padding: 7px 18px;
+    margin: 6px 4px;
+    font-size: 15px;
+    border-radius: 2px;
+}
+
+    .app-view:hover {
+        background: #2e3034 !important;
+        border: #2e3034 !important;
+        padding: 7px 18px !important;
+        margin: 6px 4px !important;
+        font-size: 15px;
+        border-radius: 2px;
+    }
+
+.add-newUser {
+    background-color: #fb641b !important;
+    border-color: #fb641b !important;
+    padding: 6px !important;
+    margin: 6px 0px !important;
+    font-size: 15px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+}
+
+    .add-newUser:hover {
+        background-color: #fb641b !important;
+        border-color: #fb641b !important;
+        padding: 6px !important;
+        margin: 6px 0px !important;
+        font-size: 15px;
+        border-radius: 2px;
+        border: 1px solid transparent;
+    }
+
+#header-cls {
+    background: #2699fb !important;
+    border: #2699fb !important;
+    height: 42px !important;
+}
+
+    #header-cls:hover {
+        background: #2699fb !important;
+        border: #2699fb !important;
+        height: 42px !important;
+    }
+
+
+th.text-left:hover {
+    background: #2699fb !important;
+    border: #2699fb !important;
+    height: 42px !important;
+}
+
+tr#border-cls {
+    height: 42px;
+}
+
+.text-left {
+    border-bottom: 0 !important;
+}
+
+.col-sm-6.infoBar {
+    display: none;
+}
+
+a.button {
+    border-radius: 50px !important;
+    margin-right: 5px;
+    font-size: 13px !important;
+    cursor: pointer;
+}
+
+#showUserDetails {
+    border: 1px solid lightgray;
+    margin-top: 30px;
+    padding: 6px;
+}
+
+.active a.button {
+    background: #2699fb !important;
+}
+
+.bootgrid-table th > .column-header-anchor {
+    color: white !important;
+    font-size: 13px;
+    font-weight: 100;
+}
+
+.table > thead > tr > th {
+    vertical-align: middle !important;
+}
+
+.tog-cls {
+    font-size: 18px;
+    border-top: none !important;
+}
+
+.app-name-cls {
+    text-decoration: underline !important;
+}
+
+.table > tbody > tr > td {
+    line-height: 2;
+    border-bottom-style: hidden !important;
+}
+
+.table > thead > tr > th {
+    line-height: 2;
+    border-bottom-style: hidden !important;
+}
+
+#align-cls {
+    text-align: center !important;
+}
+
+#AppHistoryDetails {
+    margin-top: 12px;
+}
+
+#toggleId:hover, #toggleId:focus {
+    color: #337ab7 !important;
+    text-decoration: none !important;
+}
+
+.table > tbody > tr > td {
+    line-height: 2 !important;
+    border-bottom-style: hidden !important;
+}
+
+.table > thead > tr > th {
+    line-height: 2 !important;
+    border-bottom-style: hidden !important;
+}
+
+.bootgrid-header .search {
+    width: 362px !important;
+}
+
+.navbar-nav > li > a {
+    padding-top: 19px !important;
+    padding-bottom: 19px !important;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.confirm-model {
+    width: 495px !important;
+    position: absolute !important;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    height: 217px;
+}
+
+.confirm-content {
+    border-radius: 0px !important;
+}
+
+.modal-title-header {
+    color: #2699FB;
+    text-align: center !important;
+}
+
+.model-data {
+    text-align: center;
+    font-size: 16px;
+}
+
+.footer-section {
+    text-align: center !important;
+    margin: 10px;
+}
+
+.footer-button {
+    width: 106px;
+    padding: 8px;
+    height: 40px;
+    border-radius: 0px;
+}
+
+    .footer-button:hover {
+        color: #333 !important;
+        background-color: white !important;
+        border-radius: 0px !important;
+        border-color: #ccc;
+    }
+
+.footer-savebtn {
+    width: 106px;
+    border-radius: 0px !important;
+    background: #047BD5 !important;
+    border: none !important;
+    color: white;
+    padding: 8px;
+    height: 40px;
+}
+
+    .footer-savebtn:hover {
+        color: white;
+    }
+
+.dropdown-toggle {
+    border: none !important;
+    border-bottom: 1px solid lightgray !important;
+    border-radius: 0px !important;
+}
+
+.dropdown-menu {
+    min-width: 45px !important;
+}
+
+    .dropdown-menu > .active > a {
+        color: black !important;
+        text-decoration: none;
+        background-color: white !important;
+        outline: 0;
+        padding: 9px 17px !important;
+    }
+
+/*User Details style end*/
+

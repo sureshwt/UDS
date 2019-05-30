@@ -13,11 +13,14 @@ namespace UtileDigitalSecurity.Data
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
+
         }
 
-        protected ApplicationDbContext()
+        public ApplicationDbContext()
         {
         }
+
+        public object ApplicationRole { get; internal set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -34,6 +37,11 @@ namespace UtileDigitalSecurity.Data
                 .HasKey(l => new { l.LoginProvider, l.ProviderKey, l.UserId });
 
             builder.Entity<IdentityUserRole<long>>().ToTable("UserRole").HasKey(r => new { r.UserId, r.RoleId });
+
+            builder.Entity<ApplicationRole>().Ignore(r => r.NormalizedName);
         }
+
+            public DbSet<UserTokenDetails> UserTokenDetails { get; set; }
+            public DbSet<UserTokenDeviceDetails> UserTokenDeviceDetails { get; set; }
     }
 }

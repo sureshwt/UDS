@@ -1,0 +1,265 @@
+@model IEnumerable<UtileDigitalSecurity.ViewModels.AllAppsAccessHistory>
+<style>
+  .app-history {
+    border: 1px solid lightgray;
+    margin-top: 6px;
+    padding: 6px;
+  }
+
+  .app-view {
+    background: #2e3034 !important;
+    border: #2e3034 !important;
+    padding: 7px 18px;
+    margin: 6px 4px;
+    font-size: 15px;
+    border-radius: 2px;
+  }
+
+    .app-view:hover {
+        background: #2e3034 !important;
+        border: #2e3034 !important;
+        padding: 7px 18px;
+        margin: 6px 4px;
+        font-size: 15px;
+        border-radius: 2px;
+    }
+
+    .add-new {
+        background-color: #fb641b !important;
+        border-color: #fb641b !important;
+        padding: 6px !important;
+        margin: 6px 0px !important;
+        font-size: 15px;
+        border-radius: 2px;
+    }
+
+  .app-view-btn {
+    color: white !important;
+    text-decoration: none !important;
+  }
+
+
+    .add-new:hover {
+        background-color: #fb641b !important;
+        border-color: #fb641b !important;
+        padding: 6px !important;
+        margin: 6px 0px !important;
+        font-size: 15px;
+        border-radius: 2px;
+    }
+
+  .btn-cls {
+    float: right !important;
+    padding-right: 0;
+  }
+
+  #AppHistoryData-header {
+    float: left;
+    margin: 6px 0px !important;
+    padding:0px !important;
+
+  }
+    .table > tbody > tr > td {
+        line-height: 2;
+        border-bottom-style: hidden !important;
+    }
+
+    .table > thead > tr > th {
+        line-height: 2;
+        border-bottom-style: hidden !important;
+    }
+    .bootgrid-table {
+        table-layout: auto !important;
+    }
+
+  
+    #header-cls {
+        background: #2699fb;
+        border: #2699fb;
+        height: 42px;
+    }
+    .bootgrid-table th > .column-header-anchor {
+        color: white!important;
+        font-size: 13px;
+        font-weight: 100;
+    }
+
+    .table > thead > tr > th {
+        vertical-align: middle!important;
+    }
+    .active a.button {
+        background: #2699fb !important;
+    }
+    a.button {
+        border-radius: 50px !important;
+        margin-right: 5px;
+        font-size: 13px !important;
+        cursor: pointer;
+    }
+    .col-sm-6.infoBar {
+        display: none;
+    }
+    #AppHistoryData {
+        border-bottom-style: hidden;
+        margin:0;
+    }
+    .input-group {
+        width: 350px !important;
+    }
+    .search-field.form-control {
+        border-left: none;
+    }
+
+    .icon.glyphicon.input-group-addon {
+        background: none;
+    }
+    #AppHistory {
+        border: 1px solid lightgray;
+        margin-top: 30px;
+        padding: 6px;
+    }
+    th.text-left:hover {
+        background: #2699fb !important;
+        border: #2699fb !important;
+        height: 42px !important;
+    }
+  .header-num {
+    width: 60px !important;
+    padding-left: 20px !important;
+  }
+
+  element.style {
+  }
+
+  .table > caption + thead > tr:first-child > th, .table > colgroup + thead > tr:first-child > th, .table > thead:first-child > tr:first-child > th, .table > caption + thead > tr:first-child > td, .table > colgroup + thead > tr:first-child > td, .table > thead:first-child > tr:first-child > td {
+    border-top: 0;
+  }
+
+  .bootgrid-table th:hover, .bootgrid-table th:active {
+    background: #fafafa;
+  }
+
+  th.text-left:hover {
+    background: #2699fb !important;
+    border: #2699fb !important;
+    height: 42px !important;
+  }
+
+  .bootgrid-table th:hover, .bootgrid-table th:active {
+    background: #fafafa;
+  }
+
+  .table > thead > tr > th {
+    vertical-align: middle !important;
+  }
+
+   .table > caption + thead > tr:first-child > th, .table > colgroup + thead > tr:first-child > th, .table > thead:first-child > tr:first-child > th, .table > caption + thead > tr:first-child > td, .table > colgroup + thead > tr:first-child > td, .table > thead:first-child > tr:first-child > td {
+    border-top: 0;
+  }
+
+  /*.table > caption + thead > tr:first-child > th, .table > colgroup + thead > tr:first-child > th, .table > thead:first-child > tr:first-child > th, .table > caption + thead > tr:first-child > td, .table > colgroup + thead > tr:first-child > td, .table > thead:first-child > tr:first-child > td {
+    border-top: 0;
+  }*/
+  .bootgrid-header .search {
+    width: 362px !important;
+  }
+  .dropdown-toggle {
+    border: none !important;
+    border-bottom: 1px solid lightgray !important;
+    border-radius: 0px !important;
+  }
+
+  .dropdown-menu {
+    min-width: 45px !important;
+  }
+
+    .dropdown-menu > .active > a {
+      color: black !important;
+      text-decoration: none;
+      background-color: white !important;
+      outline: 0;
+      padding: 9px 17px !important;
+    }
+
+</style>
+
+@*<link href="~/css/style.css" rel="stylesheet" type="text/css" />*@
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<link href="@Url.Content("~/scripts/jquery.bootgrid.css")" rel="stylesheet" />
+<script src="@Url.Content("~/scripts/jquery.bootgrid.js")" type="text/javascript"></script>
+
+<div id="AppHistory" class="app-history">
+    <table id="AppHistoryData" class="table table-condensed table-hover table-striped" data-toggle="AppLogHistory" data-width="300px">
+
+      <thead data-wrap="true" id="header-cls">
+        <tr id="header-cls">
+          <th data-column-id="AppId" class="col-th header-num" data-width="100px">#</th>
+          <th data-column-id="DateCreated" class="col-th" data-width="300px">@Html.DisplayNameFor(model => model.DateCreated)</th>
+          <th data-column-id="Time" class="col-th" data-width="300px">@Html.DisplayNameFor(model => model.Time)</th>
+          <th data-column-id="AppName" class="col-th" data-width="300px" data-formatter="command1">@Html.DisplayNameFor(model => model.AppName)</th>
+          <th data-column-id="UserName" class="col-th" data-width="300px"> @Html.DisplayNameFor(model => model.UserName)</th>
+          <th data-column-id="DeviceId" class="col-th" data-width="300px">@Html.DisplayNameFor(model => model.DeviceId)</th>
+          <th data-column-id="TokenId" class="col-th" data-width="300px"> @Html.DisplayNameFor(model => model.TokenId)</th>
+        </tr>
+      </thead>
+
+
+      <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+          <td class="text-center InfoDetais" data-th="App Id" data-width="100px">@Html.DisplayFor(modelItem => item.AppId)</td>
+          <td class="text-center InfoDetais" data-th="Date Created" data-width="300px">@Html.DisplayFor(modelItem => item.DateCreated)</td>
+          <td class="text-center InfoDetais" data-th="Time" data-width="300px">@Html.DisplayFor(modelItem => item.Time)</td>
+          <td class="text-center InfoDetais" data-th="AppName" data-width="300px">@Html.DisplayFor(modelItem => item.AppName)</td>
+          <td class="text-center InfoDetais" data-th="UserName" data-width="300px">@Html.DisplayFor(modelItem => item.UserName)</td>
+          <td class="text-center InfoDetais" data-th="DeviceId" data-width="300px">@Html.DisplayFor(modelItem => item.DeviceId)</td>
+          <td class="text-center InfoDetais" data-th="Token Id" data-width="300px">#@Html.DisplayFor(modelItem => item.TokenId)</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+</div>
+<div id="AppNameHistory"></div>
+
+<script type="text/javascript">
+
+  var grid = $("#AppHistoryData").bootgrid({
+    formatters: {
+      "command1": function (column, row) {
+        return "<a href=" + "javascript:appLogHistory(" + "'" + row.AppId + "'" + ") >" + row.AppName + "</a>";
+      }
+    },
+    templates: {
+      footer: "<div id=\"{{ctx.id}}\" class=\"{{css.footer}}\"><div class=\"row\"><div class=\"col-sm-4\"><p class=\"{{css.pagination}}\"></p></div><div class=\"col-sm-3\" style=\"float:left;\"><p class=\"{{css.actions}}\"></p></div></div></div></div></div>",
+      header: "<div id=\"{{ctx.id}}\" class=\"{{css.header}}\"><div class=\"row\"><div class=\"col-sm-12 actionBar\"><p class=\"{{css.search}}\"></p></div></div></div>"
+    }
+  });
+
+  $('.actions .btn-group')[1].remove();
+
+  function appLogHistory(AppId) {
+    $.ajax({
+      type: 'get',
+      url: "/Home/AppNameHistory?AppId=" + AppId
+    }).success(function (result) {
+      $('#AppNameHistory').html(result);
+      $('#appLog').hide();
+      $('#AppLogData').show();
+      $('#showDetails').hide();
+      $('#updateTokenModel').css({ 'display': 'none' })
+      $('#showDetails').hide();
+      $('#accessHistoryBtn').hide();
+      $('#AppHistory').hide();
+    });
+  }
+
+    $('tbody').html('');
+    $('#AppHistory > tbody').css({ 'width': '915px', 'display': 'table' });
+    $("#AppHistory > tbody").html("");
+    $('.pagination').parent().addClass('paginationDiv');
+    $('.bootgrid-header').css('float', 'left');
+    $('.bootgrid-header').css({ 'margin': '38px 0','margin-bottom':'6px','padding-left':'6px' });
+    $('.infos').css('display', 'none');
+</script>

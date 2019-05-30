@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using UtileDigitalSecurity.Data;
 using UtileDigitalSecurity.Models;
 using UtileDigitalSecurity.Services;
+using UtileDigitalSecurity.Migrations;
+using AutoMapper;
 
 namespace UtileDigitalSecurity
 {
@@ -26,8 +28,8 @@ namespace UtileDigitalSecurity
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationDbContext>(s =>
+                s.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, ApplicationRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -35,12 +37,14 @@ namespace UtileDigitalSecurity
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<Configuration>();
 
             services.AddMvc();
+            services.AddAutoMapper();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, Configuration config)
         {
             if (env.IsDevelopment())
             {
@@ -63,6 +67,10 @@ namespace UtileDigitalSecurity
                     name: "default",
                     template: "{controller=Login}/{action=Index}/{id?}");
             });
+
+            config.SaveRoles().Wait();
+
         }
+        
     }
 }

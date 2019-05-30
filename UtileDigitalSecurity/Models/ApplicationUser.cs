@@ -12,6 +12,5 @@ namespace UtileDigitalSecurity.Models
     [Table("Users")]
     public class ApplicationUser : IdentityUser<long>
     {
-
     }
 }

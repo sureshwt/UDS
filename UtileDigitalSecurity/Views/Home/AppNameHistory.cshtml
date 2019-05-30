@@ -1,0 +1,67 @@
+@model Tuple<UtileDigitalSecurity.Models.UserTokenDetails, IEnumerable<UtileDigitalSecurity.ViewModels.AppLogHistory>>
+
+@{
+    Layout = null;
+}
+
+
+<link href="~/css/style.css" rel="stylesheet" />
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<link href="@Url.Content("~/scripts/jquery.bootgrid.css")" rel="stylesheet" />
+<script src="@Url.Content("~/scripts/jquery.bootgrid.js")" type="text/javascript"></script>
+
+    <div class="appInfo-div">
+        <a href="@Url.Action("AllAppHistory", "Home")">
+            <img src="~/images/backArrow.png" />
+            <span class="backButton">
+                <strong>Back</strong>
+            </span>
+        </a>
+        <div class="details-div">
+            <div class="app-cls"> App Name : <span style="font-weight: bold;">@Model.Item1.AppName</span></div>
+            <div class="user-cls">User Name : <span style="font-weight: bold;">@Model.Item1.UserName</span></div>
+            <div class="token-cls">Token ID : <span style="font-weight: bold;">#@Model.Item1.TokenId</span></div>
+        </div>
+    </div>
+
+<div id="AppLogHistory" class="app-log-history">
+    <div id="AppLogHistoryData">
+        <table class="table table-condensed table-hover table-striped" data-toggle="bootgrid">
+            <thead data-wrap="true" id="header-cls">
+                <tr id="header-cls">
+                    <th data-column-id="AppId" class="col-th">Date</th>
+                    <th data-column-id="DateCreated" class="col-th" data-formatter="command2">Time</th>
+                    <th data-column-id="Time" class="col-th">Device ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if(Model.Item2.Count() > 0)
+                {
+                  @foreach (var item in Model.Item2)
+                {
+                   <tr>
+                        <td class="text-center InfoDetais" data-th="Date">@Html.DisplayFor(modelItem => item.Date)</td>
+                        <td class="text-center InfoDetais" data-th="Time">@Html.DisplayFor(modelItem => item.Time)</td>
+                        <td class="text-center InfoDetais" data-th="Device Id">@Html.DisplayFor(modelItem => item.DeviceId)</td>
+                    </tr>    
+                }
+                }
+                else
+                {
+                   <tr>
+                     <td></td>
+                     <td>
+                       <div style="text-align:center">No Access History Available</div>
+                     </td>
+                   </tr>         
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    $('.input-group').hide();
+    $('.actions .btn-group').css('display', 'none');
+    $('.bootgrid-header.container-fluid').css({'margin': '0','padding':'0','line-height':'1px'});
+</script>

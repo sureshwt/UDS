@@ -1,0 +1,123 @@
+@model UtileDigitalSecurity.ViewModels.AppDetails
+
+
+<link href="~/css/style.css" rel="stylesheet" type="text/css" />
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+<div class="modal fade" id="genToken" role="dialog" data-backdrop="static">
+  <div class="modal-dialog pos-cls">
+    <div class="modal-content hg-cls">
+      <div class="modal-header title-div">
+        <button type="button" class="close cls-btn" data-dismiss="modal"><img src="~/images/close-icon.svg" /></button>
+        <h4 class="modal-title text-center header-color model_header">Generate Token</h4>
+      </div>
+      <div class="modal-body content-cls">
+        @using (Html.BeginForm("GenerateNewToken", "Home", FormMethod.Post))
+        {
+          <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "errorMessage" })
+            <div class="display-row">
+              <div class="form-group grp-fields">
+                <div>@Html.LabelFor(model => model.AppName, htmlAttributes: new { @class = "control-label label-cls" })<span class="astrick">*</span></div>
+                <div class="col">
+                  @Html.EditorFor(model => model.AppName, new { htmlAttributes = new { @class = "form-control input-cls", @id = "appName", oninput = "inputChange()" } })
+                  @Html.ValidationMessageFor(model => model.AppName, "", new { @class = "errorMessage", @id ="appNameError" })
+                </div>
+              </div>
+
+              <div class="form-group grp-fields">
+                <div>
+                  @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label label-cls" })<span class="astrick">*</span>
+              </div>
+              <div class="col">
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control input-cls", @id = "userName", oninput = "inputChange()" } })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "errorMessage", @id = "userNameError" })
+              </div>
+            </div>
+          </div>
+
+          <div class="mg-div">
+            <div>
+              @Html.LabelFor(model => model.TokenId, htmlAttributes: new { @class = "control-label label-cls" })<span class="astrick">*</span>
+          </div>
+          <div class="col display-cls">
+            <input type="button" value="Generate" class="btn btn-default input-cls btn-color" onclick="randomTokenId()" />
+            <div>
+              @Html.EditorFor(model => model.TokenId, new { htmlattributes = new { @class = "form-control", @id = "tokenId", @readonly = "readonly" } })
+              @Html.ValidationMessageFor(model => model.TokenId, "", new { @class = "errorMessage margin-cls", @id = "tokenError" })
+            </div>
+          </div>
+        </div>
+        <div class="footer-cls">
+          <div class="col-md-4">
+            <input type="button" value="Reset" class="btn btn-default btn-wd reset-cls" onclick="Reset()" />
+          </div>
+          <div class="col-md-4">
+            <input type="submit" value="Save" class="btn btn-default btn-wd save-cls" id="submitToken" />
+          </div>
+        </div>
+      </div>
+    }
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function inputChange() {
+    var appName = document.getElementById('appName').value;
+    var userName = document.getElementById('userName').value;
+    if (appName != undefined && userName != undefined && appName != '' && userName != '') {
+      $('.btn-color').css({ 'background': '#fb641b', 'border': '#fb641b', 'color': 'white' });
+      $('.save-cls').css({ 'background': '#2699fb', 'border': '#2699fb', color: 'white' });
+    } else if (appName == '' && userName == '') {
+      $('.btn-color').css({ 'background': '#8e8e8e', 'border': '#8e8e8e', 'color': 'white' });
+      $('.save-cls').css({ 'background': '#8e8e8e', 'border': '#8e8e8e', color: 'white' });
+    }
+  }
+  $('#submitToken').click(function () {
+    var appName = document.getElementById('appName').value;
+    var userName = document.getElementById('userName').value;
+    var token = document.getElementById('tokenId').value;
+    if (appName != undefined || userName == undefined || token == undefined) {
+    $('#appNameError').show();
+    $('#userNameError').show();
+    $('#tokenError').show();
+    }
+  });
+
+  function Reset() {
+    document.getElementById('appName').value = '';
+    document.getElementById('userName').value = '';
+    document.getElementById('tokenId').value = '';
+    $('.btn-color').css({ 'background': '#8e8e8e', 'border': '#8e8e8e', 'color': 'white' });
+    $('.save-cls').css({ 'background': '#8e8e8e', 'border': '#8e8e8e', color: 'white' });
+    $('#appNameError').hide();
+    $('#userNameError').hide();
+    $('#tokenError').hide();
+  }
+
+  function getRandom(length) {
+    //$('.btn-color').css({ 'background': '#8e8e8e', 'border': '#8e8e8e', 'color': 'white' });
+    $('.btn-color').css({ 'background': 'rgb(251, 100, 27)', 'border': 'rgb(251, 100, 27)', 'color': 'white', 'outline': 'none'});
+    $('.margin-cls').css('display', 'none');
+    var tokenId = Math.floor(Math.pow(10, length - 1) + Math.random() * 9 * Math.pow(10, length - 1));
+    document.getElementById('tokenId').value = tokenId;
+    return document.getElementById('tokenId').value;
+  }
+
+  function randomTokenId() {
+    var appName = document.getElementById('appName').value;
+    var userName = document.getElementById('userName').value;
+    if (appName != undefined && userName != undefined && appName != '' && userName != '') {
+      getRandom(12);
+    }
+  }
+
+  $(document).ready(function (e) {
+    $('.btn-color').css({ 'background': '#8e8e8e', 'border': '#8e8e8e', 'color': 'white' });
+    $('.save-cls').css({ 'background': '#8e8e8e', 'border': '#8e8e8e', color: 'white' });
+  });
+</script>
+

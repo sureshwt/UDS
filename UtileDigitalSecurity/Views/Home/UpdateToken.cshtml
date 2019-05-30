@@ -1,0 +1,254 @@
+
+@model UtileDigitalSecurity.Models.AppDetails
+<style>
+    .title-div {
+        padding: 8px !important;
+    }
+
+    .cls-btn {
+        padding: 4px !important;
+    }
+
+    .grp-fields {
+        /*display: grid;*/
+        margin: 0 !important;
+        width: 290px !important;
+    }
+
+    .display-row {
+        display: flex;
+        justify-content: center;
+    }
+
+    .input-cls {
+        width: 230px!important;
+        height: 40px!important;
+        border-radius: inherit!important;
+    }
+
+    .token-field {
+        height: 24px;
+    }
+
+    .btn-color {
+        background: #8e8e8e;
+        color: white;
+        border: #8e8e8e;
+    }
+
+    .chk-cls {
+        margin: 6px 0px !important;
+    }
+
+    .footer-cls {
+        margin:29px auto;
+        width: 250px;
+    }
+
+    .hg-cls {
+        height: 360px;
+        background: #f8f8f8;
+        border-radius: inherit;
+        width: 585px;
+        position: absolute;
+        top: 92px;
+    }
+
+    .btn-wd {
+        width: 100px;
+    }
+
+    .save-cls {
+        margin-left: 30px;
+        background: #8e8e8e;
+        color: white;
+        border: #8e8e8e;
+        height: 40px;
+        border-radius: inherit;
+    }
+
+    .reset-cls {
+        background: white !important;
+        height: 40px;
+        border-radius: inherit;
+    }
+
+    .header-color {
+        color: #2699fb;
+    }
+
+    #tokenId {
+        background: white;
+    }
+
+    .content-cls {
+        padding: 15px 50px !important;
+    }
+
+    .mg-div {
+        margin-top: 12px;
+    }
+
+    .pos-cls {
+        position: relative;
+    }
+
+  .label-cls {
+    text-align: left !important;
+    padding-left: 0 !important;
+    font-weight: 500;
+    padding: 0 !important;
+    height: 30px !important;
+  }
+
+    #tokenId {
+        width: 230px;
+        margin-left: 12px;
+        height: 40px;
+        border-radius: inherit;
+    }
+
+    .display-cls {
+        display: flex;
+    }
+
+    .margin-cls {
+        margin-left: 12px;
+    }
+  .astrick {
+    color: red;
+  }
+  .model_header {
+    font-size: 16px;
+    font-weight: 300;
+  }
+  .errorMessage {
+    font-size: 12px;
+    color: red;
+  }
+</style>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+
+<div class="modal fade" id="updateTokenForm" role="dialog" data-toggle="bootgrid">
+    <div class="modal-dialog pos-cls">
+        <div class="modal-content hg-cls">
+            <div class="modal-header title-div">
+                <button type="button" class="close cls-btn" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center header-color model_header">Generate Token</h4>
+            </div>
+            <div class="modal-body content-cls">
+
+                @using (Html.BeginForm("UpdateToken", "Home", FormMethod.Post))
+                {
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "errorMessage" })
+                        @Html.HiddenFor(model => model.Id)
+
+                        <div class="display-row">
+                            <div class="form-group grp-fields">
+                              <div>@Html.LabelFor(model => model.AppName, htmlAttributes: new { @class = "control-label label-cls" })<span class="astrick">*</span></div>
+                                <div class="col">
+                                    @Html.EditorFor(model => model.AppName, new { htmlAttributes = new { @class = "form-control input-cls", @id = "appName" , oninput = "inputChange()" } })
+                                    @Html.ValidationMessageFor(model => model.AppName, "", new { @class = "errorMessage" })
+                                </div>
+                            </div>
+
+                            <div class="form-group grp-fields">
+                               <div> @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label label-cls" })<span class="astrick">*</span></div>
+                                <div class="col">
+                                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control input-cls", @id = "userName" , oninput = "inputChange()" } })
+                                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "errorMessage" })
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="mg-div">
+                          <div>@Html.LabelFor(model => model.TokenId, htmlAttributes: new { @class = "control-label label-cls" })<span class="astrick">*</span></div>
+                          <div class="col display-cls">
+                            <input type="button" value="Generate" class="btn btn-default input-cls btn-color" onclick="randomTokenId()" />
+                            <div>
+                              @Html.EditorFor(model => model.TokenId, new { htmlAttributes = new { @class = "form-control input-cls", @id = "tokenId", @readonly = "readonly"  } })
+                            </div>
+                          </div>
+                        </div>
+                        <div class="footer-cls">
+                            <div class="col-md-4">
+                                <input type="button" value="Reset" class="btn btn-default btn-wd reset-cls" onclick="Reset()" />
+                            </div>
+                            <div class="col-md-4">
+                                <input type="submit" value="Save" class="btn btn-default btn-wd save-cls" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+     function loadData(item) {
+        var appName = item.appName;
+        var userName = item.userName;
+        if (appName != undefined && userName != undefined && appName != '' && userName != '') {
+            $('.btn-color').css({ 'background': '#fb641b', 'border': '#fb641b', 'color': 'white' });
+            $('.save-cls').css({ 'background': '#2699fb', 'border': '#2699fb', color: 'white' });
+        }
+
+        var tokenId = item.tokenId;
+        if (tokenId != undefined && tokenId != '') {
+            $('.btn-color').css({ 'background': '#8e8e8e', 'border': '#8e8e8e', 'color': 'white' });
+        } else {
+            $('.btn-color').css({ 'background': '#fb641b', 'border': '#fb641b', 'color': 'white' });
+        }
+    }
+
+    function inputChange() {
+        var appName = document.getElementById('appName').value;
+        var userName = document.getElementById('userName').value;
+        if (appName != undefined && userName != undefined && appName != '' && userName != '') {
+            $('.btn-color').css({ 'background': '#fb641b', 'border': '#fb641b', 'color': 'white' });
+            $('.save-cls').css({ 'background': '#2699fb', 'border': '#2699fb', color: 'white' });
+        } else if (appName == '' && userName == '') {
+            $('.btn-color').css({ 'background': '#8e8e8e', 'border': '#8e8e8e', 'color': 'white' });
+            $('.save-cls').css({ 'background': '#8e8e8e', 'border': '#8e8e8e', color: 'white' });
+        }
+    }
+
+
+    $(document).ready(function (e) {
+        modelJSValues = {};
+        modelJSValues.appName = '@Model.AppName';
+        modelJSValues.userName = '@Model.UserName';
+        modelJSValues.tokenId = '@Model.TokenId';
+        loadData(modelJSValues);
+        console.log("ready!");
+    });
+
+
+    function Reset() {
+        document.getElementById('appName').value = '';
+        document.getElementById('userName').value = '';
+        document.getElementById('tokenId').value = '';
+        $('.btn-color').css({ 'background': '#8e8e8e', 'border': '#8e8e8e', 'color': 'white' });
+        $('.save-cls').css({ 'background': '#8e8e8e', 'border': '#8e8e8e', color: 'white' });
+    }
+
+    function randomTokenId() {
+        var appName = document.getElementById('appName').value;
+        var userName = document.getElementById('userName').value;
+        if (appName != undefined && userName != undefined && appName != '' && userName != '') {
+            getRandom(12);
+        }
+    }
+    function getRandom(length) {
+        $('.btn-color').css({ 'background': '#8e8e8e', 'border': '#8e8e8e', 'color': 'white' });
+        var tokenId = Math.floor(Math.pow(10, length - 1) + Math.random() * 9 * Math.pow(10, length - 1));
+        document.getElementById('tokenId').value = tokenId;
+        return document.getElementById('tokenId').value;
+    }
+</script>
+
